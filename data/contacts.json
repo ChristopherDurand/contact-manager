@@ -1,12 +1,5 @@
 [
   {
-    "full_name": "Jack Black",
-    "phone_number": "555-3203",
-    "email": "jack@black.com",
-    "tags": "Acting",
-    "id": 5
-  },
-  {
     "full_name": "Peter Brown",
     "phone_number": "124-12412",
     "email": "peter@brown.com",

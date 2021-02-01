@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "author": "NF",
   "scripts": {
-    "server": "node contacts.js",
+    "server": "node index.js",
     "start": "cross-env NODE_ENV=dev npm run server ",
     "test": "mocha --timeout 10000"
   },
