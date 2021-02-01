@@ -1,0 +1,23 @@
+[
+  {
+    "full_name": "Jack Black",
+    "phone_number": "555-3203",
+    "email": "jack@black.com",
+    "tags": "Acting",
+    "id": 5
+  },
+  {
+    "full_name": "Peter Brown",
+    "phone_number": "124-12412",
+    "email": "peter@brown.com",
+    "tags": "Acting, Cooking",
+    "id": 6
+  },
+  {
+    "full_name": "Jason White",
+    "phone_number": "3423423",
+    "email": "Jason@white.com",
+    "tags": "Cooking, Farming",
+    "id": 7
+  }
+]

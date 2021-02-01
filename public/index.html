@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Contact Manager</title>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/reset.css">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/app.css">
+
+  <script src="/javascripts/jquery.js"></script>
+  <script src="/javascripts/handlebars.js"></script>
+  <script type="text/javascript" src='/javascripts/app.js'></script>
+  <script id='main' type="text/x-handlebars">
+    <div class='head'>{{> head}}</div>
+    <div class='tags'>{{> tags}}</div>
+    <div class='contacts'>{{> contacts}}</div>
+  </script>
+  <script id='head' type="text/x-handlebars">
+    <a class="add button large" href='#contacts/new'>Add Contact</a>
+    <input type="text" name="search" placeholder='search'>
+  </script>
+  <script id='tags' type="text/x-handlebars">
+    {{#if tags}}
+      <ul>
+        {{#each tags}}
+        <li class='tag'>{{this}}</li>
+        {{/each}}
+      </ul>
+    {{/if}}
+  </script>
+  <script id='contacts' type="text/x-handlebars">
+    {{#if contacts}}
+      <ul>
+      {{#each contacts}}
+        <li>
+        {{> contact}}
+        </li>
+      {{/each}}
+      </ul>
+    {{else}}
+      <h2>{{message}}</h2>
+    {{/if}}
+  </script>
+  <script id='contact' type="text/x-handlebars">
+    <h3>{{full_name}}</h3>
+    <p><strong>Phone Number:</strong></p>
+    <p>{{phone_number}}</p>
+    <p><strong>Email:</strong></p>
+    <p>{{email}}</p>
+    <p><strong>Tags:</strong></p>
+    <p>{{tags}}</p>
+    <p>
+      <a href='#contacts/edit/{{id}}' class='button edit small'>Edit</a>
+      <a href='#contacts/delete/{{id}}' class='button delete small'>Delete</a>
+    </p>
+  </script>
+  <script id='contact_form' type="text/x-handlebars">
+    <h2>Create Contact</h2>
+    <form action='/api/contacts' method='post'>
+      <fieldset>
+        <dl>
+          <dt><label for='full_name'>Full Name:</label></dt>
+          <dd><input id='full_name' required type="text" name="full_name"></dd>
+          <dt><label for='email'>Email Adress:</label></dt>
+          <dd><input id='email' required type="email" name="email"></dd>
+          <dt><label for='phone_number'>Telephone Number:</label></dt>
+          <dd><input id='phone_number' required type="number" name="phone_number"</dd>
+          <dt><label for='tags'>Comma Separated Tags:</label></dt>
+          <dd><input id='tags' type="text" name="tags"></dd>
+        </dl>
+        <p>
+          <button type='submit'>Submit</button>
+          <a class='button cancel' href="/#home">Cancel</a>
+        </p>
+      </fieldset>
+    </form>
+  </script>
+  <script id='contact_edit' type="text/x-handlebars">
+    <h2>Edit Contact</h2>
+    <form action='/api/contacts/{{id}}' method='put'>
+      <fieldset>
+        <dl>
+          <dt><label for='full_name'>Full Name:</label></dt>
+          <dd><input id='full_name' required type="text" value="{{full_name}}" name="full_name"></dd>
+          <dt><label for='email'>Email Adress:</label></dt>
+          <dd><input id='email' value='{{email}}' required type="email" name="email"></dd>
+          <dt><label for='phone_number'>Telephone Number:</label></dt>
+          <dd><input id='phone_number' value='{{phone_number}}' required type="text" name="phone_number"</dd>
+          <dt><label for='tags'>Comma Separated Tags:</label></dt>
+          <dd><input id='tags' value='{{tags}}' type="text" name="tags"></dd>
+        </dl>
+        <p>
+          <button type='submit'>Submit</button>
+          <a class='button cancel' href="/#home">Cancel</a>
+        </p>
+      </fieldset>
+    </form>
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Contact Manager</h1>
+  </header>
+  <main>
+  </main>
+  <footer>
+    <h3>
+      Developed by Christopher Durand
+    </h3>
+  </footer>
+</body>
+</html>
