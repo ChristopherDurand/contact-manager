@@ -1,6 +1,5 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-
 const path = require('path');
 const contactRouter = require('./lib/contact_router');
 const app = express();
