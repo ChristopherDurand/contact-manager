@@ -1,0 +1,1 @@
+ - Bug: With an active search query, toggle some tags. This will cause the application to behave as though there is no search query until the search query is modified.
